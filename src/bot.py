@@ -7,7 +7,7 @@ import traceback
 from datetime import datetime, timezone
 from os import path, listdir
 from discord.ext.commands import Bot, Context
-from discord import Activity, AllowedMentions
+from discord import Activity, AllowedMentions, Intents
 from aiohttp import ClientSession, ClientTimeout
 
 
@@ -49,7 +49,8 @@ client = PistonBot(
     command_prefix=('/'),
     description='Hello, I can run code!',
     max_messages=15000,
-    allowed_mentions=AllowedMentions(everyone=False, users=True, roles=False)
+    allowed_mentions=AllowedMentions(everyone=False, users=True, roles=False),
+    intents=Intents.all()
 )
 client.remove_command('help')
 
